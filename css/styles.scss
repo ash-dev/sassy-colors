@@ -144,32 +144,32 @@ $colors: (
 	}
 	
 	#monochromatic.#{$name} {
-		div:nth-of-type(1) { color: lighten(darken($color, 20), 30) }
-		div:nth-of-type(2) { color: lighten($color, 30) }
-		div:nth-of-type(3) { color: lighten(desaturate($color, 30), 10)  }
-		div:nth-of-type(4) { color: darken(desaturate($color, 30), 20) }
-		div:nth-of-type(5) { color: lighten(darken(desaturate($color, 30), 30), 30)}
+		div:nth-of-type(1) { color: lighten(darken($color, 20), 30); }
+		div:nth-of-type(2) { color: lighten($color, 30); }
+		div:nth-of-type(3) { color: lighten(desaturate($color, 30), 10); }
+		div:nth-of-type(4) { color: darken(desaturate($color, 30), 20); }
+		div:nth-of-type(5) { color: lighten(darken(desaturate($color, 30), 30), 30); }
 	}
 	
 	#rainbow.#{$name} {
-		div:nth-of-type(1) { color: lighten($color, 30)}
-		div:nth-of-type(2) { color: lighten(adjust-hue($color, 36deg), 30) }
-		div:nth-of-type(3) { color: lighten(adjust-hue($color, 72deg), 30) }
-		div:nth-of-type(4) { color: lighten(adjust-hue($color, 108deg), 30)  }
-		div:nth-of-type(5) { color: lighten(adjust-hue($color, 144deg), 30) }
+		div:nth-of-type(1) { color: lighten($color, 30); }
+		div:nth-of-type(2) { color: lighten(adjust-hue($color, 36deg), 30); }
+		div:nth-of-type(3) { color: lighten(adjust-hue($color, 72deg), 30); }
+		div:nth-of-type(4) { color: lighten(adjust-hue($color, 108deg), 30); }
+		div:nth-of-type(5) { color: lighten(adjust-hue($color, 144deg), 30); }
 	}
 	
 	#complementary.#{$name} { 
 		div:nth-of-type(1) { color: lighten($color, 30); }
-		div:nth-of-type(2) { color: adjust-color($color, $saturation:-10%, $lightness:10%)  }
-		div:nth-of-type(3) { color: lighten(complement($color), 30) }
-		div:nth-of-type(4) { color: darken(complement($color), 10);}
-		div:nth-of-type(5) { color: adjust-color($color, $saturation:-30%, $lightness:10%) }
+		div:nth-of-type(2) { color: adjust-color($color, $saturation:-10%, $lightness:10%); }
+		div:nth-of-type(3) { color: lighten(complement($color), 30); }
+		div:nth-of-type(4) { color: darken(complement($color), 10); }
+		div:nth-of-type(5) { color: adjust-color($color, $saturation:-30%, $lightness:10%); }
 	}
 	
 	#inverted.#{$name} { 
-		div:nth-of-type(1) { color: $color }
-		div:nth-of-type(2) { color: lighten(adjust-hue(invert($color), 30), 30)  }
+		div:nth-of-type(1) { color: $color; }
+		div:nth-of-type(2) { color: lighten(adjust-hue(invert($color), 30), 30); }
 		div:nth-of-type(3) { color: lighten(invert($color), 30); }
 		div:nth-of-type(4) { color: lighten(invert($color), 10);}
 		div:nth-of-type(5) { color: desaturate(invert($color), 30); }
@@ -177,38 +177,38 @@ $colors: (
 
 	#vibrant.#{$name} { 
 		div:nth-of-type(1) { color: lighten(saturate($color, 30), 30); }
-		div:nth-of-type(2) { color: lighten(saturate(adjust-hue(invert($color), 30), 30), 30)  }
-		div:nth-of-type(3) { color: lighten(complement(saturate($color, 30)), 30) }
-		div:nth-of-type(4) { color: saturate(darken(complement($color), 10), 30);}
+		div:nth-of-type(2) { color: lighten(saturate(adjust-hue(invert($color), 30), 30), 30); }
+		div:nth-of-type(3) { color: lighten(complement(saturate($color, 30)), 30); }
+		div:nth-of-type(4) { color: saturate(darken(complement($color), 10), 30); }
 		div:nth-of-type(5) { color: lighten(saturate($color, 50), 10); }
 	}
 	
 	#muted.#{$name} { 
 		div:nth-of-type(1) { color: lighten(desaturate($color, 30), 30); }
-		div:nth-of-type(2) { color: adjust-color($color, $saturation:-40%) }
-		div:nth-of-type(3) { color: lighten(complement(desaturate($color, 30)), 30) }
-		div:nth-of-type(4) { color: desaturate(darken(complement($color), 10), 30);}
+		div:nth-of-type(2) { color: adjust-color($color, $saturation:-40%); }
+		div:nth-of-type(3) { color: lighten(complement(desaturate($color, 30)), 30); }
+		div:nth-of-type(4) { color: desaturate(darken(complement($color), 10), 30); }
 		div:nth-of-type(5) { color: adjust-color($color, $saturation:-50%, $lightness:10%); }
 	}
 
 	#adjacent.#{$name} { 
-		div:nth-of-type(1) { color: lighten(desaturate($color, 10), 30)}
-		div:nth-of-type(2) { color: lighten(adjust-hue($color, 45deg), 30) }
-		div:nth-of-type(3) { color: lighten(adjust-hue($color, 90deg), 30) }
-		div:nth-of-type(4) { color: adjust-color($color, $hue:90deg, $saturation:-30%);}
+		div:nth-of-type(1) { color: lighten(desaturate($color, 10), 30); }
+		div:nth-of-type(2) { color: lighten(adjust-hue($color, 45deg), 30); }
+		div:nth-of-type(3) { color: lighten(adjust-hue($color, 90deg), 30); }
+		div:nth-of-type(4) { color: adjust-color($color, $hue:90deg, $saturation:-30%); }
 		div:nth-of-type(5) { color: adjust-color($color, $hue:45deg, $saturation:-30%, $lightness:10%);  }
 	}
 	
 	#triad.#{$name} { 
-		div:nth-of-type(1) { color: lighten(desaturate($color, 10), 30) }
-		div:nth-of-type(2) { color: lighten(adjust-hue($color, 165deg), 30);  }
+		div:nth-of-type(1) { color: lighten(desaturate($color, 10), 30); }
+		div:nth-of-type(2) { color: lighten(adjust-hue($color, 165deg), 30); }
 		div:nth-of-type(3) { color: adjust-color($color, $hue:195deg, $saturation:-20%, $lightness:30%); }
-		div:nth-of-type(4) { color: adjust-color($color, $hue:195deg, $saturation:-30%);}
+		div:nth-of-type(4) { color: adjust-color($color, $hue:195deg, $saturation:-30%); }
 		div:nth-of-type(5) { color: adjust-color($color, $hue:165deg, $saturation:-30%, $lightness:10%); }
 	}
 	
 	#tetrad.#{$name} { 
-		div:nth-of-type(1) { color: lighten(desaturate($color, 10), 30) }
+		div:nth-of-type(1) { color: lighten(desaturate($color, 10), 30); }
 		div:nth-of-type(2) { color: adjust-color($color, $hue:30deg, $saturation:-20%, $lightness:30%); }
 		div:nth-of-type(3) { color: adjust-color($color, $hue:180deg, $saturation:-10%, $lightness:30%); }
 		div:nth-of-type(4) { color: adjust-color($color, $hue:210deg, $saturation:-30%, $lightness:30%); }
