@@ -1,0 +1,9 @@
+@each $name, $color in $colors {
+	#muted.#{$name} { 
+		div:nth-of-type(1) { background: desaturate($color, 30); }
+		div:nth-of-type(2) { background: adjust-color($color, $saturation:-40%, $lightness:30%) }
+		div:nth-of-type(3) { background: complement(desaturate($color, 30)) }
+		div:nth-of-type(4) { background: desaturate(lighten(complement($color), 20), 30);}
+		div:nth-of-type(5) { background: adjust-color($color, $saturation:-50%, $lightness:-20%); }
+	}
+}

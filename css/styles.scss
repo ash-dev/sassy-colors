@@ -1,0 +1,229 @@
+/* global */
+
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	padding: 10vh 0;
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	background: #eeeeee;
+}
+h1 {
+	font-weight: 700;
+	margin-top: 100px;
+	font-size: 60px;
+	color: #666;
+}
+p.description {
+	font-weight: 400;
+	margin-bottom: 80px;
+}
+.ease {
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-ms-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+/* top bar */
+
+nav {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	background: #ffffff;
+	border-bottom: 1px solid #ccc;
+	#color-swatches {
+		h2 {
+			font-weight: 700;
+		}
+	}
+	.radio {
+		display: inline-block;
+		width: 50px;
+		height: 50px;
+		max-width: 8%;
+		max-height: 5%;
+		margin-right: 0;
+		opacity: .4;
+		cursor: pointer;
+	}
+	input[type="radio"]:checked + label, input[type="radio"]:hover + label {
+		opacity: 1 !important;
+	}
+	ul {
+		margin: 10px 0 7px 0;
+		padding: 0;
+		li {
+			display: inline;
+			list-style: none;
+			input[type=radio] {
+				display: none;
+			}
+		}
+	}
+}
+
+/* scheme demo styling */
+
+section {
+	width: 90%;
+	max-width: 1400px;
+	display: block;
+	background: #ffffff;
+	margin: 40px auto;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	div {
+		width: 17.5%;
+		height: 100px;
+		background: #333;
+		display: inline-block;
+		vertical-align: top;
+		margin: 2% 1%;
+		white-space: -moz-pre-wrap;
+		white-space: -hp-pre-wrap;
+		white-space: -o-pre-wrap;
+		white-space: -pre-wrap;
+		white-space: pre-wrap !important;
+		white-space: pre-line;
+		word-wrap: break-word;
+		word-break: break-all;
+		padding: 20px;
+		font-size: 12px;
+		line-height: 16px;
+	}
+	h2 {
+		float: left;
+		margin: 19px 22px 18px 2.1%;
+		color: #999;
+	}
+	hr {
+		border-top: 1px solid #d1d1d1 !important;
+		border-bottom: 0px;
+		clear: both;
+	}
+	a {
+		float: right;
+		margin: 26px 2.1% 20px;
+		display: inline-block;
+		color: #aaa;
+		text-decoration: none;
+		@extend .ease;
+	}
+	a:hover { 
+		color: #666;
+	}
+	i {
+		margin-left: 10px;
+	}
+}
+
+/* color functions */
+
+$colors: (
+	blue: #4e4ebb,
+	lightblue: #4e8fbb,
+	teal: #4ebba5,
+	green: #4ebb64,
+	lime: #7abb4e,
+	yellow: #bbbb4e,
+	orange: #bb7a4e,
+	red: #bb4e64,
+	pink: #bb4ea5,
+	purple: #8f4ebb
+);
+
+@each $name, $color in $colors {
+	
+	.radio.#{$name} {
+		background-color: $color;
+	}
+	
+	#monochromatic.#{$name} {
+		div:nth-of-type(1) { color: lighten(darken($color, 20), 30) }
+		div:nth-of-type(2) { color: lighten($color, 30) }
+		div:nth-of-type(3) { color: lighten(desaturate($color, 30), 10)  }
+		div:nth-of-type(4) { color: darken(desaturate($color, 30), 20) }
+		div:nth-of-type(5) { color: lighten(darken(desaturate($color, 30), 30), 30)}
+	}
+	
+	#rainbow.#{$name} {
+		div:nth-of-type(1) { color: lighten($color, 30)}
+		div:nth-of-type(2) { color: lighten(adjust-hue($color, 36deg), 30) }
+		div:nth-of-type(3) { color: lighten(adjust-hue($color, 72deg), 30) }
+		div:nth-of-type(4) { color: lighten(adjust-hue($color, 108deg), 30)  }
+		div:nth-of-type(5) { color: lighten(adjust-hue($color, 144deg), 30) }
+	}
+	
+	#complementary.#{$name} { 
+		div:nth-of-type(1) { color: lighten($color, 30); }
+		div:nth-of-type(2) { color: adjust-color($color, $saturation:-10%, $lightness:10%)  }
+		div:nth-of-type(3) { color: lighten(complement($color), 30) }
+		div:nth-of-type(4) { color: darken(complement($color), 10);}
+		div:nth-of-type(5) { color: adjust-color($color, $saturation:-30%, $lightness:10%) }
+	}
+	
+	#inverted.#{$name} { 
+		div:nth-of-type(1) { color: $color }
+		div:nth-of-type(2) { color: lighten(adjust-hue(invert($color), 30), 30)  }
+		div:nth-of-type(3) { color: lighten(invert($color), 30); }
+		div:nth-of-type(4) { color: lighten(invert($color), 10);}
+		div:nth-of-type(5) { color: desaturate(invert($color), 30); }
+	}
+
+	#vibrant.#{$name} { 
+		div:nth-of-type(1) { color: lighten(saturate($color, 30), 30); }
+		div:nth-of-type(2) { color: lighten(saturate(adjust-hue(invert($color), 30), 30), 30)  }
+		div:nth-of-type(3) { color: lighten(complement(saturate($color, 30)), 30) }
+		div:nth-of-type(4) { color: saturate(darken(complement($color), 10), 30);}
+		div:nth-of-type(5) { color: lighten(saturate($color, 50), 10); }
+	}
+	
+	#muted.#{$name} { 
+		div:nth-of-type(1) { color: lighten(desaturate($color, 30), 30); }
+		div:nth-of-type(2) { color: adjust-color($color, $saturation:-40%) }
+		div:nth-of-type(3) { color: lighten(complement(desaturate($color, 30)), 30) }
+		div:nth-of-type(4) { color: desaturate(darken(complement($color), 10), 30);}
+		div:nth-of-type(5) { color: adjust-color($color, $saturation:-50%, $lightness:10%); }
+	}
+
+	#adjacent.#{$name} { 
+		div:nth-of-type(1) { color: lighten(desaturate($color, 10), 30)}
+		div:nth-of-type(2) { color: lighten(adjust-hue($color, 45deg), 30) }
+		div:nth-of-type(3) { color: lighten(adjust-hue($color, 90deg), 30) }
+		div:nth-of-type(4) { color: adjust-color($color, $hue:90deg, $saturation:-30%);}
+		div:nth-of-type(5) { color: adjust-color($color, $hue:45deg, $saturation:-30%, $lightness:10%);  }
+	}
+	
+	#triad.#{$name} { 
+		div:nth-of-type(1) { color: lighten(desaturate($color, 10), 30) }
+		div:nth-of-type(2) { color: lighten(adjust-hue($color, 165deg), 30);  }
+		div:nth-of-type(3) { color: adjust-color($color, $hue:195deg, $saturation:-20%, $lightness:30%); }
+		div:nth-of-type(4) { color: adjust-color($color, $hue:195deg, $saturation:-30%);}
+		div:nth-of-type(5) { color: adjust-color($color, $hue:165deg, $saturation:-30%, $lightness:10%); }
+	}
+	
+	#tetrad.#{$name} { 
+		div:nth-of-type(1) { color: lighten(desaturate($color, 10), 30) }
+		div:nth-of-type(2) { color: adjust-color($color, $hue:30deg, $saturation:-20%, $lightness:30%); }
+		div:nth-of-type(3) { color: adjust-color($color, $hue:180deg, $saturation:-10%, $lightness:30%); }
+		div:nth-of-type(4) { color: adjust-color($color, $hue:210deg, $saturation:-30%, $lightness:30%); }
+		div:nth-of-type(5) { color: adjust-color($color, $hue:210deg, $saturation:-30%, $lightness:10%); }
+	}
+}
+
+/* scheme imports */
+
+@import 'monochromatic'; 
+@import 'complementary'; 
+@import 'adjacent'; 
+@import 'triad'; 
+@import 'tetrad'; 
+@import 'rainbow'; 
+@import 'inverted'; 
+@import 'vibrant'; 
+@import 'muted'; 

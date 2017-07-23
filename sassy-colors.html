@@ -1,0 +1,156 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Sassy Colors</title>
+  <meta name="description" content="An experiment in color manipulation/scheme generation with Sass color functions.">
+  <!---Normalize--->  
+  <link rel="stylesheet" href="css/normalize.css">
+  <!---Demo resources--->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="https://use.fontawesome.com/74cc847491.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<!---Start nav--->
+<nav>
+	<div id="color-swatches">
+		<form>
+			<ul>
+				<li><input checked="checked" id="blue" name="color" type="radio" value="blue"><label class="radio blue ease" for="blue"></label></li>
+				<li><input id="lightblue" name="color" type="radio" value="lightblue"><label class="radio lightblue ease" for="lightblue"></label></li>
+				<li><input id="teal" name="color" type="radio" value="teal"><label class="radio teal ease" for="teal"></label></li>
+				<li><input id="green" name="color" type="radio" value="green"><label class="radio green ease" for="green"></label></li>
+				<li><input id="lime" name="color" type="radio" value="lime"><label class="radio lime ease" for="lime"></label></li>
+				<li><input id="yellow" name="color" type="radio" value="yellow"><label class="radio yellow ease" for="yellow"></label></li>
+				<li><input id="orange" name="color" type="radio" value="orange"><label class="radio orange ease" for="orange"></label></li>
+				<li><input id="red" name="color" type="radio" value="red"><label class="radio red ease" for="red"></label></li>
+				<li><input id="pink" name="color" type="radio" value="pink"><label class="radio pink ease" for="pink"></label></li>
+				<li><input id="purple" name="color" type="radio" value="purple"><label class="radio purple ease" for="purple"></label></li>
+			</ul>
+		</form>
+	</div>
+</nav>
+<!---End nav--->
+
+<!---Heading--->
+<h1>Sassy Colors</h1>
+<p class="description">An experiment in color manipulation/scheme generation with Sass color functions.</p>		
+		
+<!---Start color schemes--->	
+
+<section id="monochromatic" class="blue">
+	<h2>Monochromatic</h2>	
+	<a href="css/_monochromatic.scss">Download styles <i class="fa fa-download"></i></a>
+	<hr>
+	<div>darken($color, 20)</div><!--
+	--><div>$color</div><!--
+	--><div>lighten(desaturate($color, 30), 40)</div><!--
+	--><div>lighten(desaturate($color, 30), 10)</div><!--
+	--><div>darken(desaturate($color, 30), 30)</div>
+</section>
+
+<section id="complementary" class="blue">
+	<h2>Complementary</h2>	
+	<a href="css/_complementary.scss">Download styles <i class="fa fa-download"></i></a>
+	<hr>
+	<div>$color</div><!--
+	--><div>adjust-color($color, $saturation:-10%, $lightness:40%)</div><!--
+	--><div>complement($color)</div><!--
+	--><div>lighten(complement($color), 20)</div><!--
+	--><div>adjust-color($color, $saturation:-30%, $lightness:-20%)</div>
+</section>
+
+<section id="adjacent" class="blue">
+	<h2>Adjacent</h2>	
+	<a href="css/_adjacent.scss">Download styles <i class="fa fa-download"></i></a>
+	<hr>
+	<div>desaturate($color, 10)</div><!--
+	--><div>adjust-hue($color, 45deg)</div><!--
+	--><div>adjust-hue($color, 90deg)</div><!--
+	--><div>adjust-color($color, $hue:90deg, $saturation:-30%, $lightness:30%)</div><!--
+	--><div>adjust-color($color, $hue:45deg, $saturation:-30%, $lightness:-20%)</div>
+</section>
+
+ <section id="triad" class="blue">
+	<h2>Triad</h2>	
+	<a href="css/_triad.scss">Download styles <i class="fa fa-download"></i></a>
+	<hr>
+	<div>desaturate($color, 10)</div><!--
+	--><div>adjust-hue($color, 165deg)</div><!--
+	--><div>adjust-color($color, $hue:195deg, $saturation:-20%)</div><!--
+	--><div>adjust-color($color, $hue:195deg, $saturation:-30%, $lightness:30%)</div><!--
+	--><div>adjust-color($color, $hue:165deg, $saturation:-30%, $lightness:-20%)</div>
+</section>
+
+ <section id="tetrad" class="blue">
+	<h2>Tetrad</h2>	
+	<a href="css/_tetrad.scss">Download styles <i class="fa fa-download"></i></a>
+	<hr>
+	<div>desaturate($color, 10)</div><!--
+	--><div>adjust-color($color, $hue:30deg, $saturation:-20%)</div><!--
+	--><div>adjust-color($color, $hue:180deg, $saturation:-10%)</div><!--
+	--><div>adjust-color($color, $hue:210deg, $saturation:-30%)</div><!--
+	--><div>adjust-color($color, $hue:210deg, $saturation:-30%, $lightness:-20%)</div>
+</section>
+
+<section id="rainbow" class="blue">
+	<h2>Rainbow</h2>	
+	<a href="css/_rainbow.scss">Download styles <i class="fa fa-download"></i></a>
+	<hr>
+	<div>$color</div><!--
+	--><div>adjust-hue($color, 36deg)</div><!--
+	--><div>adjust-hue($color, 72deg)</div><!--
+	--><div>adjust-hue($color, 108deg)</div><!--
+	--><div>adjust-hue($color, 144deg)</div>
+</section>
+
+<section id="inverted" class="blue">
+	<h2>Inverted</h2>	
+	<a href="css/_inverted.scss">Download styles <i class="fa fa-download"></i></a>
+	<hr>
+	<div>darken($color, 30)</div><!--
+	--><div>adjust-hue(invert($color), 30)</div><!--
+	--><div>invert($color);</div><!--
+	--><div>darken(invert($color), 20)</div><!--
+	--><div>darken(desaturate(invert($color), 30), 30)</div>
+</section>
+
+<section id="vibrant" class="blue">
+	<h2>Vibrant</h2>	
+	<a href="css/_vibrant.scss">Download styles <i class="fa fa-download"></i></a>
+	<hr>
+	<div>saturate($color, 30)</div><!--
+	--><div>saturate(adjust-hue(invert($color), 30), 30)</div><!--
+	--><div>complement(saturate($color, 30))</div><!--
+	--><div>saturate(lighten(complement($color), 20), 30)</div><!--
+	--><div>darken(saturate($color, 50), 20)</div>
+</section>
+
+<section id="muted" class="blue">
+	<h2>Muted</h2>	
+	<a href="css/_muted.scss">Download styles <i class="fa fa-download"></i></a>
+	<hr>
+	<div>desaturate($color, 30)</div><!--
+	--><div>adjust-color($color, $saturation:-40%, $lightness:30%)</div><!--
+	--><div>complement(desaturate($color, 30))</div><!--
+	--><div>desaturate(lighten(complement($color), 20), 30)</div><!--
+	--><div>adjust-color($color, $saturation:-50%, $lightness:-20%)</div>
+</section>
+
+<!---End color schemes--->
+  
+<!---Demo scripts--->
+<script src="js/scripts.js"></script>
+
+</body>
+</html>

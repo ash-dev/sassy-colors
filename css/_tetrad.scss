@@ -1,0 +1,9 @@
+@each $name, $color in $colors {
+	#tetrad.#{$name} { 
+		div:nth-of-type(1) { background: desaturate($color, 10) }
+		div:nth-of-type(2) { background: adjust-color($color, $hue:30deg, $saturation:-20%); }
+		div:nth-of-type(3) { background: adjust-color($color, $hue:180deg, $saturation:-10%); }
+		div:nth-of-type(4) { background: adjust-color($color, $hue:210deg, $saturation:-30%); }
+		div:nth-of-type(5) { background: adjust-color($color, $hue:210deg, $saturation:-30%, $lightness:-20%); }
+	}
+}
